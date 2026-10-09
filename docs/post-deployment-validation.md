@@ -1,8 +1,8 @@
 # Post-deployment validation
 
-**Status: blank template.** Nobody has filled this in. Copy it into the ticket when you finish a real preparation, and mark a line only after you have seen the result.
+Blank sign-off sheet. Fill it in after a preparation visit, from what you saw on that PC.
 
-The deployment steps live in [deployment-checklist.md](deployment-checklist.md). This page is the sign-off. A procedure that exists on paper is not a pass.
+The preparation steps are in [deployment-checklist.md](deployment-checklist.md).
 
 ## Visit
 
@@ -74,4 +74,4 @@ Add one row per required application. Leave the table empty until a real request
 | Technician signature or name | |
 | Time finished | |
 
-**Recorded result for this repository:** The table is empty because no handoff was performed.
+No handoff has been recorded.

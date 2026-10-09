@@ -1,8 +1,8 @@
 # Windows computer preparation checklist
 
-**Status: proposed procedure.** No computer was prepared, updated, renamed, or handed to a user for this repository. Complete the verification line from the screen in front of you, then record the result on [post-deployment-validation.md](post-deployment-validation.md).
+Use this list in the same order each time. Record the results on [post-deployment-validation.md](post-deployment-validation.md). These steps have not been carried out on a computer yet.
 
-Use this list every time so two technicians prepare a PC the same way. Do the tasks in order. A later task often hides a failure from an earlier one: installing apps before Windows Update finishes wastes time when the restart wipes the installer state.
+Installing applications before Windows Update finishes often wastes the work, because the required restart can interrupt the installer.
 
 Work on a computer you are allowed to change. These steps change a PC. The PowerShell scripts in this project do not, and they are optional attachments, not a substitute for the checklist.
 
@@ -15,8 +15,6 @@ Write down who the PC is for, the due date, the required applications, whether t
 - [ ] The user, due date, and required applications are written on the ticket.
 - [ ] Another person's data is either out of scope or backed up by the process your organization uses.
 - [ ] You know whether a printer, VPN, or email account is part of this request.
-
-**Recorded result for this repository:** Not performed.
 
 ## 2. Identify the hardware and the Windows edition
 
@@ -34,8 +32,6 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\system_invento
 - [ ] The edition can do what the user needs (domain join, required apps).
 - [ ] The inventory CSV is attached to the private ticket and is not committed to Git.
 
-**Recorded result for this repository:** Not performed. The script itself was validated separately. See [validation-results.md](validation-results.md).
-
 ## 3. Confirm power, picture, and input
 
 Connect the power adapter for a laptop. Confirm the display is readable, the keyboard types, and the pointing device clicks. If this is a desktop, check the monitor cable at both ends before you reinstall Windows drivers.
@@ -45,8 +41,6 @@ Connect the power adapter for a laptop. Confirm the display is readable, the key
 - [ ] The PC stays on when external power is connected.
 - [ ] You can type and click on the local console.
 - [ ] The display is on the correct input and the image is stable.
-
-**Recorded result for this repository:** Not performed.
 
 ## 4. Install Windows updates
 
@@ -69,8 +63,6 @@ Installing updates changes the PC and can take a long time. This repository does
 - [ ] `Get-HotFix` shows the recent installed updates you expect after that restart.
 - [ ] The user can still sign in after the restart.
 
-**Recorded result for this repository:** Not performed.
-
 ## 5. Install the requested software
 
 Follow [software-installation.md](software-installation.md). Install only what the ticket lists, from the company portal or the vendor. Confirm each app opens.
@@ -80,8 +72,6 @@ Follow [software-installation.md](software-installation.md). Install only what t
 - [ ] Each required application is installed and opens to its main window.
 - [ ] The version on the ticket matches the version in the app or in `winget list`.
 - [ ] Extra toolbars or trial suites were declined.
-
-**Recorded result for this repository:** Not performed. No application was installed while building this project.
 
 ## 6. Set the configuration the user will live with
 
@@ -105,8 +95,6 @@ There is no rename script in this project. Renaming is a one-time change with a 
 - [ ] Default apps match the ticket.
 - [ ] The PC has an address on the network it is supposed to use.
 
-**Recorded result for this repository:** Not performed.
-
 ## 7. Verify the devices the user will touch
 
 Check each device that is in scope. "In scope" means the ticket or the standard build includes it.
@@ -127,8 +115,6 @@ Device Manager is the place to look when a device has a yellow mark. A yellow ma
 - [ ] Yellow marks in Device Manager are resolved or written on the ticket with the device name.
 - [ ] A test page was printed if a printer is in scope.
 
-**Recorded result for this repository:** Not performed.
-
 ## 8. Check security before handoff
 
 Read [security-considerations.md](security-considerations.md) while you do this.
@@ -148,8 +134,6 @@ Read [security-considerations.md](security-considerations.md) while you do this.
 - [ ] The day-to-day user is not a local admin unless that was requested.
 - [ ] Encryption status is recorded without storing a recovery key here.
 
-**Recorded result for this repository:** Not performed.
-
 ## 9. Hand the PC to the user
 
 Sit with the user long enough for them to sign in with their own account. Watch them open the one or two apps they care about. Show them how to connect to Wi-Fi if they will leave the building, and how to reach your team. Collect the setup account's session so you do not stay signed in.
@@ -163,8 +147,6 @@ Fill [post-deployment-validation.md](post-deployment-validation.md) before you c
 - [ ] The user knows how to reconnect to the network and how to ask for help.
 - [ ] The sign-off sheet is filled from this visit, and your name and the date are on it.
 - [ ] Inventory and disk reports attached to the ticket contain no passwords.
-
-**Recorded result for this repository:** Not performed.
 
 ## Disk report to attach
 
@@ -181,4 +163,3 @@ Investigate before handoff when the script warns that free space is under 15 per
 - [ ] The disk report is attached to the ticket.
 - [ ] Any drive under the threshold is explained on the ticket, or free space was recovered by an approved method.
 
-**Recorded result for this repository:** Not performed.

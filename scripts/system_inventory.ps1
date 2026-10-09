@@ -10,8 +10,7 @@
     - Win32_ComputerSystem: manufacturer, model, installed RAM, logical processor count
 
     It does not collect passwords, tokens, BitLocker recovery keys, serial numbers,
-    the signed-in user name, or domain membership. Those fields are useful in a
-    private asset database, but they do not belong in a sample that may be published.
+    the signed-in user name, or domain membership.
 
     The script does not change Windows settings and does not need administrator rights.
 

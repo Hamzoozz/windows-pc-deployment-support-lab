@@ -1,8 +1,8 @@
 # Software installation
 
-**Status: proposed procedure.** No application was installed, upgraded, or removed while this repository was built. `winget` examples below are commands to run on a PC you support, when a ticket names that application.
+No application was installed, upgraded, or removed while this repository was built. The `winget` examples are commands to use when a request names that application.
 
-Install the applications the request lists, from a source you can explain, and prove each one opens.
+Install the applications the request lists, from a source you can identify, and confirm each one opens.
 
 ## 1. Confirm the request and the license
 
@@ -13,8 +13,6 @@ Write the product name, the edition, and who approves a paid license. A free ven
 - [ ] Product name and version or edition are on the ticket.
 - [ ] A paid product has an approved license path.
 - [ ] The installer source is the vendor or the company portal.
-
-**Recorded result for this repository:** Not performed.
 
 ## 2. See whether it is already there
 
@@ -40,8 +38,6 @@ winget show --id Vendor.Product
 - [ ] You checked Installed apps before downloading anything.
 - [ ] You recorded the installed version, or recorded that it was absent.
 
-**Recorded result for this repository:** Not performed. `winget list` was not run as part of building this project.
-
 ## 3. Choose per-user or per-machine
 
 A per-machine install needs administrator rights and is available to every account on the PC. A per-user install stays in that person's profile and is the right choice for a single employee when the vendor supports it. Your company standard wins when it names one of these.
@@ -52,8 +48,6 @@ Do not disable User Account Control to make an installer quieter. Give the setup
 
 - [ ] You know whether the app was installed for one user or for the computer.
 - [ ] The elevation prompt was the normal Windows prompt.
-
-**Recorded result for this repository:** Not performed.
 
 ## 4. Install from the chosen source
 
@@ -77,8 +71,6 @@ Decline extra offers inside a vendor setup program: extra browsers, toolbars, an
 - [ ] The installer came from the source you named in step 1.
 - [ ] Extra bundled software was declined.
 - [ ] The installer finished with its own success message, or the error text was saved.
-
-**Recorded result for this repository:** Not performed.
 
 ## 5. Prove the install
 
@@ -105,8 +97,6 @@ Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |
 - [ ] The version on the sign-off sheet matches `winget list` or the uninstall entry.
 - [ ] A shortcut exists where the user will look, when the installer normally creates one.
 
-**Recorded result for this repository:** Not performed.
-
 ## 6. If it fails, remove the half-installed copy
 
 Save the installer error first. Use **Settings > Apps** or the vendor's uninstall entry. When `winget` installed it, this removes that package:
@@ -123,8 +113,6 @@ Restart if the installer says a restart is required, then try once more from the
 - [ ] The broken copy was removed through Apps or `winget uninstall`.
 - [ ] A second attempt used the same trusted source, or the ticket was escalated.
 
-**Recorded result for this repository:** Not performed.
-
 ## 7. Record it on the sign-off
 
 Add one row per application on [post-deployment-validation.md](post-deployment-validation.md). Include the version you observed, not the version you meant to install.
@@ -134,4 +122,3 @@ Add one row per application on [post-deployment-validation.md](post-deployment-v
 - [ ] Every requested app has a row.
 - [ ] Apps that were not requested were not installed "while you were there."
 
-**Recorded result for this repository:** Not performed.

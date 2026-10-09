@@ -1,6 +1,6 @@
 # Windows troubleshooting
 
-**Status: proposed procedure.** These are the steps to follow when a user reports a problem. They are not a log of a real incident. When you use them, write the symptom, the command, and the result in the ticket before you change the PC.
+Steps for a user report. This file is not a log of a real incident. Write the symptom, the command, and the result in the ticket before changing the PC.
 
 Network symptoms have their own guide: [network-troubleshooting.md](network-troubleshooting.md).
 
@@ -21,8 +21,6 @@ One application on one PC points at that app, its files, or its settings. Every 
 - [ ] You know whether the failure is one app, one PC, or many PCs.
 - [ ] You have not restarted, reinstalled, or "cleaned" anything yet.
 
-**Recorded result for this repository:** Not performed.
-
 ## Application failures
 
 Work from the cheapest evidence to the most disruptive fix.
@@ -35,8 +33,6 @@ Ask the user to do the same click again, or do it yourself while they watch. A f
 
 - [ ] You saw the failure, or you recorded that you could not reproduce it.
 - [ ] You know if another Windows account on the same PC can open the app.
-
-**Recorded result for this repository:** Not performed.
 
 ### 2. Read Application errors from the last day
 
@@ -62,8 +58,6 @@ If PowerShell says no events were found, that window has no Application errors. 
 - [ ] Any matching error's time, source, and event ID are on the ticket.
 - [ ] You looked at Reliability Monitor when the start time was vague.
 
-**Recorded result for this repository:** Not performed.
-
 ### 3. Check disk space and the app's own repair
 
 A full disk makes installers and browsers fail in odd ways. Run:
@@ -79,8 +73,6 @@ If the app has a Repair option in **Settings > Apps > Installed apps**, use that
 - [ ] Free space was checked before you blamed the application.
 - [ ] Repair was tried when the vendor offers it, and the result is recorded.
 - [ ] A reinstall happened only after the error text and the log entry were saved.
-
-**Recorded result for this repository:** Not performed.
 
 ## High resource usage
 
@@ -104,8 +96,6 @@ Many rows with the same name are normal. Browsers and `svchost` do that. `svchos
 - [ ] A CPU complaint was confirmed with Task Manager's live percentage, not only with `CPUSeconds`.
 - [ ] You can name the process you think is responsible.
 
-**Recorded result for this repository:** Not performed. The script's `-Top 5` path was validated for columns and row count only. See [validation-results.md](validation-results.md).
-
 ### 2. Decide whether the usage is expected
 
 Windows Update, a defender scan, a large file copy, and a just-opened browser are normal short spikes. A single app at the top of memory after the user closed it, or a fan that never settles, is worth a closer look.
@@ -114,10 +104,8 @@ Search the vendor's support site for that process name plus the version you have
 
 **Verification**
 
-- [ ] You can say whether the busy process matches something the user just did.
+- [ ] The note says whether the busy process matches something the user just did.
 - [ ] You did not install a third-party cleaner.
-
-**Recorded result for this repository:** Not performed.
 
 ### 3. Close only a process you can explain
 
@@ -143,8 +131,6 @@ Startup apps live in Task Manager > Startup apps. Disable a vendor's helper only
 - [ ] Critical Windows processes were left running.
 - [ ] You checked the PC again after the change and wrote down whether it improved.
 
-**Recorded result for this repository:** Not performed.
-
 ## Printers
 
 Most "it will not print" tickets are a selected printer, a stuck queue, or an offline device. Walk them in that order.
@@ -164,8 +150,6 @@ Get-PrintJob -PrinterName "Printer Name Here"
 
 - [ ] The selected printer name matches the one the user thinks they used.
 - [ ] Printer status and the waiting jobs are written on the ticket.
-
-**Recorded result for this repository:** Not performed.
 
 ### 2. Clear a stuck queue, then test the spooler
 
@@ -191,8 +175,6 @@ This repository does not include a script that restarts the spooler. Run it only
 - [ ] The user was told printing would pause.
 - [ ] A test page was printed after the service was running again, or the remaining error was recorded.
 
-**Recorded result for this repository:** Not performed.
-
 ### 3. Separate a cable, a driver, and a network printer
 
 - Local USB: reseat the cable and watch Device Manager for the printer.
@@ -205,8 +187,6 @@ This repository does not include a script that restarts the spooler. Run it only
 - [ ] For a network printer, you recorded the address and whether the PC can reach it.
 - [ ] Only one queue is the default, and a test page used that queue.
 
-**Recorded result for this repository:** Not performed.
-
 ## When to stop and escalate
 
 Escalate when the error mentions a server you do not administer, when many users are affected, when the fix needs a domain admin or a firewall change, or when you would have to disable security software to continue. Write what you already checked so the next person does not start over.
@@ -216,4 +196,3 @@ Escalate when the error mentions a server you do not administer, when many users
 - [ ] The ticket says what you tested and what you saw.
 - [ ] You did not disable antivirus, the firewall, or User Account Control to force the app open.
 
-**Recorded result for this repository:** Not performed.

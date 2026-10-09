@@ -1,8 +1,6 @@
 # Validation results
 
-**Status: this run happened.** The notes below are the script checks from 8 October 2026, Eastern time. They are not a PC deployment, a Windows Update install, a software install, or a user handoff.
-
-The procedure documents stay unmarked until those tasks are done on a computer and the results are written down there.
+Script checks from 8 October 2026, Eastern time. This run did not deploy a PC, install updates, install software, or complete a user handoff.
 
 ## Environment
 
@@ -67,13 +65,13 @@ Observed on this PC during those checks:
 - Dot-sourcing `system_inventory.ps1` loaded `Get-LabSystemInventory` and did not write a CSV.
 - Omitting `-OutputPath` wrote `output\system-inventory.csv`. The test deleted that file and exited with the folder removed.
 
-## What this run does not show
+## Limits of this run
 
-- It does not show that any checklist task was done.
-- It does not compare the disk report with File Explorer or Disk Management. Column names and "at least one disk" were checked. The gigabyte figures were not checked against the GUI.
-- It does not open the CSV in Excel. The formula prefix was checked on a sample string in memory.
-- It was not repeated on Windows 10 or on PowerShell 7.
-- It does not prove behavior when CIM queries are broken.
+- No checklist task was carried out.
+- Disk numbers were not compared with File Explorer or Disk Management. The checks covered column names and that at least one local disk was reported.
+- Excel was not opened. The formula prefix was checked on a sample string in memory.
+- The same checks were not run on Windows 10 or on PowerShell 7.
+- The checks do not cover a failed CIM query.
 
 ## Output left behind
 

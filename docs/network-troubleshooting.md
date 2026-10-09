@@ -1,6 +1,6 @@
 # Network troubleshooting
 
-**Status: proposed procedure.** Use this when a user cannot reach a site, a share, a printer, or email. No connectivity test was run against a user network for this repository. The script validation did not call `ping`, `Test-NetConnection`, or `Resolve-DnsName`.
+Use this when a user cannot reach a site, a share, a printer, or email. No connectivity test was saved for this repository. The script checks did not call `ping`, `Test-NetConnection`, or `Resolve-DnsName`.
 
 Find the first layer that fails and stop there. Fixing DNS settings will not help a PC that has no link light.
 
@@ -25,8 +25,6 @@ Write the exact name or address that fails, whether other sites work, and whethe
 - [ ] You know if other destinations work.
 - [ ] You know if a second PC on the same network has the same failure.
 
-**Recorded result for this repository:** Not performed.
-
 ## 2. Check the adapter
 
 Look at the Ethernet link light or the Wi-Fi icon. Then:
@@ -44,8 +42,6 @@ If Wi-Fi is up and the user is on a guest network, they may be online and still 
 - [ ] The adapter name and status are on the ticket.
 - [ ] A disconnected adapter was traced to cable, radio, or a disabled NIC before any IP changes.
 - [ ] The joined Wi-Fi name is the one the user is supposed to use.
-
-**Recorded result for this repository:** Not performed.
 
 ## 3. Read the address configuration
 
@@ -71,8 +67,6 @@ Read these fields for the adapter that should be in use:
 - [ ] An address starting with `169.254` is treated as a DHCP failure.
 - [ ] You identified which adapter the user is actually using.
 
-**Recorded result for this repository:** Not performed.
-
 ## 4. Test the gateway
 
 ```powershell
@@ -87,8 +81,6 @@ Replace `<gateway-address>` with the gateway from `ipconfig`. A reply means this
 
 - [ ] You pinged the gateway from `ipconfig`, not a public address, as the first hop test.
 - [ ] The reply or the exact error is on the ticket.
-
-**Recorded result for this repository:** Not performed.
 
 ## 5. Separate DNS from IP connectivity
 
@@ -121,8 +113,6 @@ A script or a ticket that sets the proxy to the wrong server will fail names tha
 - [ ] A name failure with a working IP test led you to the DNS servers in `ipconfig` and to `Resolve-DnsName`.
 - [ ] You checked proxy settings before reinstalling the browser.
 
-**Recorded result for this repository:** Not performed.
-
 ## 6. Test the service port
 
 A server can answer ping and still refuse the port an application needs. `Test-NetConnection` opens a TCP connection, which is closer to what the app does.
@@ -141,8 +131,6 @@ Run this against a host you are allowed to test. Checking a port on your company
 - [ ] `TcpTestSucceeded` and the remote address are on the ticket.
 - [ ] The test target is a host in the user's request.
 
-**Recorded result for this repository:** Not performed.
-
 ## 7. Close the ticket or escalate
 
 If every layer succeeds on this PC and fails on no other PC, look at the application. If the gateway test fails only on this PC, stay on the cable, Wi-Fi, or address. If several PCs fail at the same layer, escalate with the layer you found so the network owner does not start from zero.
@@ -153,4 +141,3 @@ If every layer succeeds on this PC and fails on no other PC, look at the applica
 - [ ] The commands and the results are written down.
 - [ ] A site-wide failure was escalated with that evidence.
 
-**Recorded result for this repository:** Not performed.

@@ -1,6 +1,6 @@
 # Security considerations
 
-**Status: rules for this lab, plus one verified behavior.** The script checks on 8 October 2026 confirmed that the inventory and process CSV headers leave out passwords, tokens, serial numbers, command lines, and user names, and that a sample value starting with `=` is prefixed before it can become a spreadsheet formula. No deployment security checklist was performed on a user PC. See [validation-results.md](validation-results.md).
+Rules for these scripts and for a preparation visit. The 8 October 2026 script checks confirmed that the inventory and process CSV headers omit passwords, tokens, serial numbers, command lines, and user names, and that a sample value starting with `=` is prefixed before it is written. Details are in [validation-results.md](validation-results.md). The preparation checks below have not been done on a user PC.
 
 ## Least privilege
 
@@ -15,8 +15,6 @@ The day-to-day user of the PC should be a standard user unless the ticket says t
 - [ ] Inventory, disk, and process reports were run without "Run as administrator."
 - [ ] Elevation was used only for a step that Windows requires.
 - [ ] The user's daily account is a standard account, unless the request says otherwise.
-
-**Recorded result for this repository:** The scripts were validated without elevation. The account-type check on a user PC was not performed.
 
 ## What the scripts collect
 
@@ -44,8 +42,6 @@ Leave these out of the scripts, the CSV files, screenshots, and this Git reposit
 - [ ] The CSV attached to a real ticket was glanced at for stray secrets before it was uploaded.
 - [ ] No recovery key, password, or token is in the repo or the screenshot.
 
-**Recorded result for this repository:** Header checks passed during script validation. No user-PC ticket was filed.
-
 ## CSV files are still sensitive
 
 The inventory row contains the computer name. That is enough to identify a machine. `.gitignore` ignores `*.csv` in this project so a default `output\system-inventory.csv` is not committed by accident. Store reports in the ticket system. Delete the local copy when the ticket has it.
@@ -57,8 +53,6 @@ Excel treats a cell that begins with `=`, `+`, `-`, or `@` as a formula. The sha
 - [ ] `git status` does not list a CSV from this lab.
 - [ ] The report path you chose is a folder you intended.
 
-**Recorded result for this repository:** The validation script deleted the CSVs it created, including the default `output\system-inventory.csv`. No CSV is part of the project files.
-
 ## The scripts do not change the PC
 
 They do not call `Stop-Process`, `Restart-Service`, `Remove-Item` on user data, `Set-ItemProperty`, `Format-Volume`, `Disable-NetAdapter`, or user-account commands. Creating `output\` under this project, when you omit `-OutputPath` on the inventory script, is the only folder they create. Exporting a CSV you named is the only file write.
@@ -67,10 +61,8 @@ Service restarts, uninstalls, and Windows Update installs live in the procedure 
 
 **Verification**
 
-- [ ] You can point at the script and say which cmdlet reads Windows and which cmdlet writes the CSV.
+- [ ] Before the script is run on someone else's PC, the read command and the CSV write are identified in the file.
 - [ ] A change such as a spooler restart was a separate, deliberate step.
-
-**Recorded result for this repository:** Confirmed by reading the scripts and by the validation run completing without a request for administrator rights. A line-by-line code review by a second person has not been recorded.
 
 ## Execution policy
 
@@ -92,10 +84,8 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 **Verification**
 
-- [ ] You can explain why `Bypass` on one command is different from changing the policy for the PC.
+- [ ] `-ExecutionPolicy Bypass` was limited to that one command. The stored execution policy was not changed.
 - [ ] You read a script before you run it with `Bypass`.
-
-**Recorded result for this repository:** The validation command used a one-process bypass. The machine execution policy was not changed by these scripts.
 
 ## Controls you should not turn off
 
@@ -109,8 +99,6 @@ Do not install "cleaner" or "driver update" tools from an ad. Use the PC vendor,
 - [ ] The firewall is still on.
 - [ ] User Account Control is still at the company default.
 
-**Recorded result for this repository:** Not performed on a user PC.
-
 ## Tell the user what you are running
 
 On a PC that already belongs to someone, say that you are collecting the computer model, Windows version, disk space, or a process list, and that you are not collecting their password or files. Lock the screen if you step away. Sign out of your setup account before you leave.
@@ -120,4 +108,3 @@ On a PC that already belongs to someone, say that you are collecting the compute
 - [ ] The user heard what the script collects.
 - [ ] The console is locked or signed out when you leave.
 
-**Recorded result for this repository:** Not performed. No user was present for the script validation.
