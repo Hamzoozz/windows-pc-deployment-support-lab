@@ -1,0 +1,3 @@
+# Reports created by the scripts can contain this computer's name.
+output/
+*.csv
